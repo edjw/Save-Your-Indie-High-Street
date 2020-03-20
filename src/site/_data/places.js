@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const Airtable = require("airtable");
 Airtable.configure({
@@ -10,10 +10,13 @@ const base = Airtable.base(process.env.AIRTABLE_BASE_ID);
 module.exports = async () => {
     let allPlaces = [];
     return new Promise((resolve, reject) => {
-        base('businesses_table').select({
+        base("businesses_table").select({
             // Selecting the first 3 records in Database:
             // maxRecords: 3,
-            view: "Database"
+            view: "Database",
+            sort: [
+                {field: "town_city", direction: "asc"},
+            ],
         }).eachPage(function page(records, fetchNextPage) {
             // This function (`page`) will get called for each page of records.
 
