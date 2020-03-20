@@ -3,9 +3,24 @@
 {% block content %}
     {{ content | safe }}
 
-<h2>Places</h2>
-{% for place in places %}
-    <h3><a href="{{ place | slug }}">{{ place }}</a></h3>
-{% endfor %}
+    <h2>Places</h2>
+    {% set initial = "" %}
+    {% for place in places %}
 
+        {% set currentInitial = place | first %}
+        {% if currentInitial != initial %}
+            <h3 id="{{ currentInitial }}">
+                {{ currentInitial }}
+            </h3>
+            {% set initial = currentInitial %}
+        {% endif %}
+
+        <h4>
+            <a href="{{ place | slug }}">{{ place }}</a>
+        </h4>
+    {% endfor %}
+
+    <p>
+        <a href="/add">Add a businesses</a>
+    </p>
 {% endblock %}

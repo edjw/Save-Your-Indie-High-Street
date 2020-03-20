@@ -1,5 +1,6 @@
 ---
 title: About
-layout: layouts/base.njk
-subtitle: 
+layout: layouts/page.njk
 ---
+
+This is the about page.

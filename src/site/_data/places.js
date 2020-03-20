@@ -15,8 +15,9 @@ module.exports = async () => {
             // maxRecords: 3,
             view: "Database",
             sort: [
-                {field: "town_city", direction: "asc"},
+                { field: "town_city", direction: "asc" },
             ],
+            fields: ["town_city"]
         }).eachPage(function page(records, fetchNextPage) {
             // This function (`page`) will get called for each page of records.
 

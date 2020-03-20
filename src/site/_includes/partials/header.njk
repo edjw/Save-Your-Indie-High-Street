@@ -7,6 +7,10 @@
       <a href="/about">about<small>all about this</small></a>
     </li>
   </ul> #}
-  <h1><a href="/">{{ site.title }}</a></h1>
-  {%- if subtitle %}<p class="subtitle">{{ subtitle | safe }}</p>{% endif %}
+  <h1 class="title">
+    <a href="/">{{ site.title }}</a>
+  </h1>
+  {% if site.subtitle %}
+    <p class="subtitle">{{ site.subtitle | safe }}</p>
+  {% endif %}
 </header>
