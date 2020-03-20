@@ -10,7 +10,7 @@
     {% include "../../assets/css/main.css" %}
     {% endset %}
     <style>
-      {{css | cssmin | safe}}
+      {{ css | cssmin | safe }}
     </style>
   </head>
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
