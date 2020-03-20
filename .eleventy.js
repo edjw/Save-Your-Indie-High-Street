@@ -13,10 +13,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("htmlmin", require("./src/utils/minify-html.js"));
 
   // pass some assets right through
-  eleventyConfig.addPassthroughCopy("./src/site/images");
+  eleventyConfig.addPassthroughCopy("./src/site/assets");
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("_headers");
-
 
   const CleanCSS = require("clean-css");
   eleventyConfig.addFilter("cssmin", function (code) {
