@@ -1,52 +1,44 @@
-
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
-
-module.exports = function(config) {
+module.exports = function (eleventyConfig) {
 
   // A useful way to reference the context we are runing eleventy in
   let env = process.env.ELEVENTY_ENV;
 
   // Layout aliases can make templates more portable
-  config.addLayoutAlias('default', 'layouts/base.njk');
+  eleventyConfig.addLayoutAlias('default', 'layouts/base.njk');
 
   // Add some utility filters
-  config.addFilter("squash", require("./src/utils/filters/squash.js") );
-  config.addFilter("dateDisplay", require("./src/utils/filters/date.js") );
-
-
-  // add support for syntax highlighting
-  config.addPlugin(syntaxHighlight);
+  eleventyConfig.addFilter("squash", require("./src/utils/filters/squash.js"));
 
   // minify the html output
-  config.addTransform("htmlmin", require("./src/utils/minify-html.js"));
-
-  // compress and combine js files
-  config.addFilter("jsmin", function(code) {
-    const UglifyJS = require("uglify-js");
-    let minified = UglifyJS.minify(code);
-      if( minified.error ) {
-          console.log("UglifyJS error: ", minified.error);
-          return code;
-      }
-      return minified.code;
-  });
-
+  eleventyConfig.addTransform("htmlmin", require("./src/utils/minify-html.js"));
 
   // pass some assets right through
-  config.addPassthroughCopy("./src/site/images");
+  eleventyConfig.addPassthroughCopy("./src/site/images");
 
-  // make the seed target act like prod
-  env = (env=="seed") ? "prod" : env;
+  const CleanCSS = require("clean-css");
+  eleventyConfig.addFilter("cssmin", function (code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
+
+  const Terser = require("terser");
+  eleventyConfig.addFilter("jsmin", function (code) {
+    let minified = Terser.minify(code);
+    if (minified.error) {
+      console.log("Terser error: ", minified.error);
+      return code;
+    }
+    return minified.code;
+  });
+
   return {
     dir: {
       input: "src/site",
       output: "dist",
-      data: `_data/${env}`
+      data: "_data"
     },
-    templateFormats : ["njk", "md", "11ty.js"],
-    htmlTemplateEngine : "njk",
-    markdownTemplateEngine : "njk",
+    templateFormats: ["njk", "md", "11ty.js"],
+    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk",
     passthroughFileCopy: true
   };
 

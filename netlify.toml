@@ -1,14 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "yarn build"
   publish = "dist"
-  functions = "src/functions"
-  NODE_ENV = "10.15.3"
 
 [dev]
-  command = "npm run start"
-
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
+  command = "yarn start"

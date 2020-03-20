@@ -1,0 +1,61 @@
+---
+pagination:
+    data: businesses
+    size: 1
+    alias: business
+permalink: "{{ business.town_city | slug }}/{{ business.name | slug }}/"
+layout: "layouts/business.njk"
+---
+<p><a href="..">← {{ business.town_city }}</a></p>
+<h2>{{ business.name }}</h2>
+
+{% if business.description %}
+<h3>Description</h3>
+<p>{{ business.description }}</p>
+{% endif %}
+
+<h3>Place</h3>
+<p>{{ business.town_city }}</p>
+
+<h3>Category</h3>
+<p>{{ business.category }}</p>
+
+{% if business.website %}
+<h3>Website</h3>
+<p><a href="{{ business.website }}">Vist {{ business.name }}'s website</a></p>
+{% endif %}
+
+{% if business.phone_number %}
+<h3>Phone</h3>
+<p>Phone: <a href="tel:{{ business.phone_number }}">{{ business.phone_number }}</a></p>
+{% endif %}
+
+{% if business.email_address %}
+<h3>Email</h3>
+<p><a href="mailto:{{ business.email_address }}">{{ business.email_address }}</a></p>
+{% endif %}
+
+{% if business.voucher_instructions or business.voucher_link %}
+<h3>Buy a voucher</h3>
+{% endif %}
+
+{% if business.voucher_instructions %}
+<p>{{ business.voucher_instructions | striptags(true) | escape | nl2br }}</p>
+{% endif %}
+
+{% if business.voucher_link %}
+<p><a href="{{ business.voucher_link }}">Buy your voucher</a></p>
+{% endif %}
+
+{% if business.delivery_instructions or business.delivery_link %}
+</h3>
+{% endif %}
+{% if business.delivery_instructions %}
+<p>{{ business.delivery_instructions | striptags(true) | escape | nl2br }}</p>
+{% endif %}
+
+{% if business.delivery_link %}
+<p><a href="{{ business.delivery_link }}">Order your delivery</a></p>
+{% endif %}
+
+<p><a href="..">← {{ business.town_city }}</a></p>

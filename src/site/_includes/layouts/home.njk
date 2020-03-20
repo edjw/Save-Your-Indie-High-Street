@@ -1,0 +1,11 @@
+{% extends './base.njk' %}
+
+{% block content %}
+    {{ content | safe }}
+
+<h2>Places</h2>
+{% for place in places %}
+    <h3><a href="{{ place | slug }}">{{ place }}</a></h3>
+{% endfor %}
+
+{% endblock %}

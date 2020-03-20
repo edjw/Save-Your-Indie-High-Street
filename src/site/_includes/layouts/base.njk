@@ -3,25 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
+    {# <link rel="stylesheet" href="/css/styles.css"> #}
     <title>{{ title }}</title>
+    {% set css %}
+    {% include "../../assets/css/main.css" %}
+    {% endset %}
+    <style>
+      {{css | cssmin | safe}}
+    </style>
   </head>
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
 
-    <div class="container">
-      {% include "header.njk" %}
-      {{ content | safe }}
-      {% include "footer.njk" %}
-    </div>
+    <main class="container">
+      {% include "partials/header.njk" %}
+      {% block content %}{% endblock %}
+      {% include "partials/footer.njk" %}
+    </main>
 
+    <!-- capture the JS content as a Nunjucks variable -->
     {% set js %}
-      {% include "js/core.js" %}
-      {% include "js/hello.js" %}
+    {# {% include "sample.js" %} #}
     {% endset %}
-    <script>{{ js | jsmin | safe }}</script>
+    <!-- feed it through our jsmin filter to minify -->
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
 
   </body>
 </html>
-
-
-

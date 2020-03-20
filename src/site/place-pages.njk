@@ -1,0 +1,26 @@
+---
+pagination:
+    data: places
+    size: 1
+    alias: place
+permalink: "{{ place | slug }}/"
+layout: "layouts/place.njk"
+---
+
+{% block content %}
+<p><a href="..">← Home</a></p>
+<h2>{{ place }}</h2>
+
+{% for business in businesses %}
+
+    {% if business.town_city | slug == place | slug %}
+
+        <p><a href="{{ business.name | slug }}">{{ business.name }}</a></p>
+    
+    {% endif %}
+
+{% endfor %}
+
+<p><a href="..">← Home</a></p>
+
+{% endblock %}
