@@ -14,6 +14,9 @@ module.exports = function (eleventyConfig) {
 
   // pass some assets right through
   eleventyConfig.addPassthroughCopy("./src/site/images");
+  eleventyConfig.addPassthroughCopy("_redirects");
+  eleventyConfig.addPassthroughCopy("_headers");
+
 
   const CleanCSS = require("clean-css");
   eleventyConfig.addFilter("cssmin", function (code) {
