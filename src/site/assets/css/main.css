@@ -1,3 +1,122 @@
+html {
+  font-size: 20px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: 300px;
+  text-rendering: optimizeSpeed;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
-    /* background-color: red; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 1.5rem 0;
+  background-color: #dcdad7;
+}
+
+.container {
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: #a3e9ff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.title {
+  line-height: 1;
+}
+
+.title a {
+  color: #000;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+}
+
+.intro {
+  margin-top: 1rem;
+}
+
+p {
+  margin-top: 0.5rem;
+}
+
+a {
+  color: #000;
+}
+
+.back_link {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+  color: #fff;
+}
+
+.back_link a {
+  color: #000;
+}
+
+.initial {
+  text-decoration: underline;
+}
+
+.place {
+  list-style-type: square;
+}
+
+.places {
+  margin: 1rem 1rem;
+  background-color: #eded94;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.places_list,
+.places_list > * + * {
+  margin-top: 1rem;
+}
+
+.businesses_list_section {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.add_business {
+  margin-top: 1rem;
+}
+
+footer {
+  margin-top: 1.5rem;
+}
+
+ul.businesses_list {
+  margin: 1.5rem 0;
+  margin-left: 1rem;
+}
+
+.business_list_name {
+  list-style-type: square;
+  margin-top: 1rem;
+}
+
+.business_details {
+  margin-top: 1rem;
+}
+
+.business_details h3 {
+  margin-top: 1.25rem;
+}
+
+.business_category {
+  margin-top: 0;
+}
+
+.business_name {
+  line-height: 1;
 }

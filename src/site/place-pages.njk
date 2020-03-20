@@ -8,19 +8,24 @@ layout: "layouts/place.njk"
 ---
 
 {% block content %}
-<p><a href="..">← Home</a></p>
-<h2>{{ place }}</h2>
+<small class="back_link"><a href="/">← Home</a></small>
 
-{% for business in businesses %}
+<section class="businesses_list_section">
+
+    <h2>{{ place }} businesses</h2>
+
+    <ul class="businesses_list">
+    {% for business in businesses %}
 
     {% if business.town_city | slug == place | slug %}
 
-        <p><a href="{{ business.name | slug }}">{{ business.name }}</a></p>
-    
+    <li class="business_list_name"><a href="{{ business.name | slug }}">{{ business.name }}</a></li>
+
     {% endif %}
 
-{% endfor %}
-
-<p><a href="..">← Home</a></p>
+    {% endfor %}
+</ul>
+</section>
+<small class="back_link"><a href="..">← Home</a></small>
 
 {% endblock %}

@@ -1,26 +1,32 @@
 {% extends './base.njk' %}
 
 {% block content %}
-    {{ content | safe }}
 
-    <h2>Places</h2>
-    {% set initial = "" %}
-    {% for place in places %}
+    <section class="intro">
+        {{ content | safe }}
+    </section>
+    <hr>
+    <section class="places" id="places">
+        <h2>Find businesses near you</h2>
+        <section class="places_list">
+            {% set initial = "" %}
+            {% for place in places %}
 
-        {% set currentInitial = place | first %}
-        {% if currentInitial != initial %}
-            <h3 id="{{ currentInitial }}">
-                {{ currentInitial }}
-            </h3>
-            {% set initial = currentInitial %}
-        {% endif %}
+                {% set currentInitial = place | first %}
+                {% if currentInitial != initial %}
+                    <h3 class="initial" id="{{ currentInitial }}">
+                        {{ currentInitial }}
+                    </h3>
+                    {% set initial = currentInitial %}
+                {% endif %}
+                <ul>
+                    <li class="place">
+                        <a href="{{ place | slug }}" id="{{ place | slug }}">{{ place }}</a>
+                    </li>
+                </ul>
 
-        <h4>
-            <a href="{{ place | slug }}">{{ place }}</a>
-        </h4>
-    {% endfor %}
+            {% endfor %}
+        </section>
+    </section>
 
-    <p>
-        <a href="/add">Add a businesses</a>
-    </p>
 {% endblock %}
