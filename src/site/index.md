@@ -11,4 +11,4 @@ Unless these businesses can make it through, we might just have chains once this
 
 1. **Buy vouchers and order deliveries** from your local indie businesses via the listings on this website.
 
-2. **Make it easy for people to support their favourite local businesses.** [Add businesses to this website](/add).
+2. **Make it easy for people to support their favourite local businesses.** Take 5 minutes to [add businesses to this website](/add).
