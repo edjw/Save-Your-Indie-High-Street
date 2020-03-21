@@ -8,7 +8,7 @@ layout: "layouts/business.njk"
 ---
 
 {% block content %}
-<small class="back_link"><a href="/">Home</a> / <a href="..">{{ business.town_city }}</a></small>
+<nav><small class="back_link"><span>←</span> <a href="/">Home</a> / <a href="..">{{ business.town_city }}</a></small></nav>
 
 <section class="businesses_list_section">
 
@@ -72,5 +72,5 @@ layout: "layouts/business.njk"
         {% endif %}
     </section>
 </section>
-<small class="back_link"><a href="..">← {{ business.town_city }}</a></small>
+<small class="back_link"><span>←</span> <a href="..">{{ business.town_city }}</a></small>
 {% endblock %}

@@ -12,6 +12,8 @@
     <style>
       {{ css | cssmin | safe }}
     </style>
+    {% include "partials/metadata.njk" %}
+
   </head>
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
 
