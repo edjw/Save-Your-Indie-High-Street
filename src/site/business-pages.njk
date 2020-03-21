@@ -3,8 +3,10 @@ pagination:
     data: businesses
     size: 1
     alias: business
+    addAllPagesToCollections: true
 permalink: "{{ business.town_city | slug }}/{{ business.name | slug }}/"
 layout: "layouts/business.njk"
+tag: business
 ---
 
 {% block content %}

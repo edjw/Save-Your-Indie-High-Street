@@ -1,3 +1,4 @@
+const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) {
 
   // A useful way to reference the context we are runing eleventy in
@@ -17,7 +18,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("_headers");
 
-  eleventyConfig.addPassthroughCopy({"./src/site/assets/images/favicons": "/"});
+  eleventyConfig.addPassthroughCopy({ "./src/site/assets/images/favicons": "/" });
 
   const CleanCSS = require("clean-css");
   eleventyConfig.addFilter("cssmin", function (code) {
@@ -32,6 +33,10 @@ module.exports = function (eleventyConfig) {
       return code;
     }
     return minified.code;
+  });
+
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
   return {

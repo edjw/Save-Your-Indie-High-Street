@@ -3,8 +3,11 @@ pagination:
     data: places
     size: 1
     alias: place
+    addAllPagesToCollections: true
 permalink: "{{ place | slug }}/"
 layout: "layouts/place.njk"
+tag: place
+title: {{ place }}
 ---
 
 {% block content %}

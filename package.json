@@ -1,7 +1,6 @@
 {
   "name": "save-your-indie-high-street",
   "description": "",
-  "author": "Ed Johnson-Williams",
   "license": "MIT",
   "scripts": {
     "start": "yarn run dev",
@@ -9,20 +8,24 @@
     "build": "cross-env ELEVENTY_ENV=prod eleventy",
     "debug": "cross-env DEBUG=* yarn eleventy"
   },
+  "author": {
+    "name": "Ed Johnson-Williams",
+    "email": "ed@johnsonwilliams.co.uk",
+    "url": "https://edjohnsonwilliams.co.uk"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/edjw/Save-Your-Indie-High-Street"
   },
-  "dependencies": {
+  "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
+    "cross-env": "7.0.2",
+    "luxon": "^1.22.0",
     "airtable": "^0.8.1",
     "clean-css": "^4.2.3",
     "dotenv": "^8.2.0",
     "html-minifier": "^4.0.0",
     "terser": "^4.6.7",
     "uglify-js": "^3.6.0"
-  },
-  "devDependencies": {
-    "cross-env": "7.0.2"
   }
 }
