@@ -1,5 +1,8 @@
 {
     "title": "Save Your Indie High Street",
     "subtitle": "Help your local indie businesses get through coronavirus",
-    "repository": "https://github.com/edjw/Save-Your-Indie-High-Street"
+    "url": "https://saveyourindiehighstreet.uk",
+    "repository": "https://github.com/edjw/Save-Your-Indie-High-Street",
+    "social_image_path": "https://saveyourindiehighstreet.uk/assets/images/social_image.png",
+    "social_image_alt_text": "Save Your Indie High Street logo"
 }
