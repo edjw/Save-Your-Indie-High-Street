@@ -17,6 +17,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("_headers");
 
+  eleventyConfig.addPassthroughCopy({"./src/site/assets/images/favicons": "/"});
+
   const CleanCSS = require("clean-css");
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
