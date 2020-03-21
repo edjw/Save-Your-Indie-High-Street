@@ -39,6 +39,7 @@ body {
 
 .subtitle {
   margin-top: 0.5rem;
+  line-height: 1;
 }
 
 .intro {
