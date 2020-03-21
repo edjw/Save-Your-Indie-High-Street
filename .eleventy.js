@@ -1,6 +1,15 @@
 const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) {
 
+  let markdownIt = require("markdown-it");
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true
+  };
+  let markdownLib = markdownIt(options);
+  eleventyConfig.setLibrary("md", markdownLib);
+
   // A useful way to reference the context we are runing eleventy in
   let env = process.env.ELEVENTY_ENV;
 
@@ -10,19 +19,15 @@ module.exports = function (eleventyConfig) {
   // Add some utility filters
   eleventyConfig.addFilter("squash", require("./src/utils/filters/squash.js"));
 
-  // minify the html output
-  eleventyConfig.addTransform("htmlmin", require("./src/utils/minify-html.js"));
-
-  // pass some assets right through
-  eleventyConfig.addPassthroughCopy("./src/site/assets");
-  eleventyConfig.addPassthroughCopy("_redirects");
-  eleventyConfig.addPassthroughCopy("_headers");
-
-  eleventyConfig.addPassthroughCopy({ "./src/site/assets/images/favicons": "/" });
-
   const CleanCSS = require("clean-css");
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
+  });
+
+  const linkifyHtml = require('linkifyjs/html');
+  eleventyConfig.addFilter("linkify", function (text) {
+    var options = { nl2br: true, };
+    return linkifyHtml(new String(text), options);
   });
 
   const Terser = require("terser");
@@ -38,6 +43,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
+
+  // minify the html output
+  eleventyConfig.addTransform("htmlmin", require("./src/utils/minify-html.js"));
+
+  // pass some assets right through
+  eleventyConfig.addPassthroughCopy("./src/site/assets");
+  eleventyConfig.addPassthroughCopy("_redirects");
+  eleventyConfig.addPassthroughCopy("_headers");
+
+  eleventyConfig.addPassthroughCopy({ "./src/site/assets/images/favicons": "/" });
+
 
   return {
     dir: {

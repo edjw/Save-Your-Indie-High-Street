@@ -2018,6 +2018,11 @@ linkify-it@^2.0.0:
   dependencies:
     uc.micro "^1.0.1"
 
+linkifyjs@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/linkifyjs/-/linkifyjs-2.1.9.tgz#af06e45a2866ff06c4766582590d098a4d584702"
+  integrity sha512-74ivurkK6WHvHFozVaGtQWV38FzBwSTGNmJolEgFp7QgR2bl6ArUWlvT4GcHKbPe1z3nWYi+VUdDZk16zDOVug==
+
 liquidjs@^6.4.3:
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-6.4.3.tgz#c7caf7a3f6c87dc6a22a5a351328cf8f7298c243"

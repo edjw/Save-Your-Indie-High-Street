@@ -51,7 +51,7 @@ tag: business
         {% endif %}
 
         {% if business.voucher_instructions %}
-        <p>{{ business.voucher_instructions | striptags(true) | escape | nl2br }}</p>
+        <p class="dont-break-out">{{ business.voucher_instructions | linkify | safe }}</p>
         {% endif %}
 
         {% if business.voucher_link %}
@@ -64,7 +64,7 @@ tag: business
         <h3>Order delivery</h3>
         {% endif %}
         {% if business.delivery_instructions %}
-        <p>{{ business.delivery_instructions | striptags(true) | escape | nl2br }}</p>
+        <p class="dont-break-out">{{ business.delivery_instructions | linkify | safe }}</p>
         {% endif %}
 
         {% if business.delivery_link %}

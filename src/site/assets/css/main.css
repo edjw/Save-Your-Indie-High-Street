@@ -90,6 +90,18 @@ body {
   border-top: 6px solid #40a4f4;
 }
 
+.dont-break-out {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .title {
   line-height: 1;
 }

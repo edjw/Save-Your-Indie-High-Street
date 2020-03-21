@@ -19,12 +19,13 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "cross-env": "7.0.2",
-    "luxon": "^1.22.0",
     "airtable": "^0.8.1",
     "clean-css": "^4.2.3",
+    "cross-env": "7.0.2",
     "dotenv": "^8.2.0",
     "html-minifier": "^4.0.0",
+    "linkifyjs": "^2.1.9",
+    "luxon": "^1.22.0",
     "terser": "^4.6.7",
     "uglify-js": "^3.6.0"
   }
