@@ -57,7 +57,6 @@ tag: business
             {% endif %}
 
             {% if business.voucher_link %}
-
                 {% if business.voucher_link | linkType == "phone" %}
                     <p>Call {{ business.name}} to buy a voucher:</p>
                     <p>
@@ -65,17 +64,18 @@ tag: business
                     </p>
 
                 {% elif business.voucher_link | linkType == "email" %}
-                    <p>Email {{ business.name}} to buy a voucher:</p>
+                    <p>Email {{ business.name }} to buy a voucher:</p>
                     <p>
                         <a href="mailto:{{ business.voucher_link | safe }}">{{ business.voucher_link | safe }}</a>
                     </p>
 
-                {% else %}
+                {% elif business.voucher_link | linkType == "webpage" %}
                     <p>
-                        <a href="{{ business.voucher_link | safe }}">Buy your voucher</a>
+                        <a href="{{ business.voucher_link | safe }}">Buy your voucher online</a>
                     </p>
                 {% endif %}
             {% endif %}
+
 
             {% if business.delivery_instructions or business.delivery_link %}
                 <h3>Order delivery</h3>
@@ -103,7 +103,7 @@ tag: business
                 {% else %}
 
                     <p>
-                        <a href="{{ business.delivery_link | safe }}">Order your delivery</a>
+                        <a href="{{ business.delivery_link | safe }}">Order your delivery online</a>
                     </p>
                 {% endif %}
 
