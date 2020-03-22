@@ -19,6 +19,19 @@ module.exports = function (eleventyConfig) {
   // Add some utility filters
   eleventyConfig.addFilter("squash", require("./src/utils/filters/squash.js"));
 
+  eleventyConfig.addFilter("linkType", require("./src/utils/filters/linkType.js"));
+
+  // eleventyConfig.addFilter("linkType", function (link) {
+  //   if (link.startsWith("+") || link.startsWith("0")) {
+  //     return "phone";
+  //   }
+
+  //   else {
+  //     return "dunno";
+  //   }
+  // });
+
+
   const CleanCSS = require("clean-css");
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;

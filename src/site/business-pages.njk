@@ -10,69 +10,100 @@ tag: business
 ---
 
 {% block content %}
-<nav><small class="back_link"><span>←</span> <a href="/">Home</a> / <a href="..">{{ business.town_city }}</a></small></nav>
+    <nav>
+        <small class="back_link">
+            <span>←</span>
+            <a href="/">Home</a> / <a href="..">{{ business.town_city }}</a>
+        </small>
+    </nav>
 
-<section class="businesses_list_section">
+    <section class="businesses_list_section">
 
-    <h2 class="business_name">{{ business.name }}</h2>
-    <small class="business_category">{{ business.category }}</small>
+        <h2 class="business_name">{{ business.name }}</h2>
+        <small class="business_category">{{ business.category }}</small>
 
-    <section class="business_details">
-        {% if business.description %}
-        <h3>Description</h3>
-        <p>{{ business.description }}</p>
-        {% endif %}
+        <section class="business_details">
+            {% if business.description %}
+                <h3>Description</h3>
+                <p>{{ business.description }}</p>
+            {% endif %}
 
-        {# <h3>Place</h3>
+            {# <h3>Place</h3>
         <p>{{ business.town_city }}</p> #}
 
-        {% if business.website %}
-        <h3>Website</h3>
-        <p>
-            <a href="{{ business.website }}">Vist {{ business.name }}'s website</a>
-        </p>
-        {% endif %}
+            {% if business.website %}
+                <h3>Website</h3>
+                <p>
+                    <a href="{{ business.website }}">Vist {{ business.name }}'s website</a>
+                </p>
+            {% endif %}
 
-        {% if business.phone_number %}
-        <h3>Phone</h3>
-        <p>Phone: <a href="tel:{{ business.phone_number }}">{{ business.phone_number }}</a>
-        </p>
-        {% endif %}
+            {% if business.phone_number %}
+                <h3>Phone</h3>
+                <p>Phone: <a href="tel:{{ business.phone_number }}">{{ business.phone_number }}</a>
+                </p>
+            {% endif %}
 
-        {% if business.email_address %}
-        <h3>Email</h3>
-        <p>
-            <a href="mailto:{{ business.email_address }}">{{ business.email_address }}</a>
-        </p>
-        {% endif %}
+            {% if business.email_address %}
+                <h3>Email</h3>
+                <p>
+                    <a href="mailto:{{ business.email_address }}">{{ business.email_address | lower }}</a>
+                </p>
+            {% endif %}
 
-        {% if business.voucher_instructions or business.voucher_link %}
-        <h3>Buy a voucher</h3>
-        {% endif %}
+            {% if business.voucher_instructions or business.voucher_link %}
+                <h3>Buy a voucher</h3>
+            {% endif %}
 
-        {% if business.voucher_instructions %}
-        <p class="dont-break-out">{{ business.voucher_instructions | linkify | safe }}</p>
-        {% endif %}
+            {% if business.voucher_instructions %}
+                <p class="dont-break-out">{{ business.voucher_instructions | linkify | safe }}</p>
+            {% endif %}
 
-        {% if business.voucher_link %}
-        <p>
-            <a href="{{ business.voucher_link }}">Buy your voucher</a>
-        </p>
-        {% endif %}
+            {% if business.voucher_link %}
 
-        {% if business.delivery_instructions or business.delivery_link %}
-        <h3>Order delivery</h3>
-        {% endif %}
-        {% if business.delivery_instructions %}
-        <p class="dont-break-out">{{ business.delivery_instructions | linkify | safe }}</p>
-        {% endif %}
+                {% if business.voucher_link | linkType == "phone" %}
+                    <p>Call {{ business.name}} to buy a voucher:</p>
+                    <p>
+                        <a href="tel:{{ business.voucher_link | safe }}">{{ business.voucher_link | safe }}</a>
+                    </p>
 
-        {% if business.delivery_link %}
-        <p>
-            <a href="{{ business.delivery_link }}">Order your delivery</a>
-        </p>
-        {% endif %}
+                {% else %}
+                    <p>
+                        <a href="{{ business.voucher_link | safe }}">Buy your voucher</a>
+                    </p>
+                {% endif %}
+            {% endif %}
+
+            {% if business.delivery_instructions or business.delivery_link %}
+                <h3>Order delivery</h3>
+            {% endif %}
+
+            {% if business.delivery_instructions %}
+                <p class="dont-break-out">{{ business.delivery_instructions | linkify | safe }}</p>
+            {% endif %}
+
+            {% if business.delivery_link %}
+
+                {% if business.delivery_link | linkType == "phone" %}
+                    <p>Call {{ business.name}} to order your delivery:</p>
+                    <p>
+                        <a href="tel:{{ business.delivery_link | safe }}">
+                            {{ business.delivery_link | safe }}</a>
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        <a href="{{ business.delivery_link | safe }}">Order your delivery</a>
+                    </p>
+                {% endif %}
+
+            {% endif %}
+
+        </section>
     </section>
-</section>
-<small class="back_link"><span>←</span> <a href="..">{{ business.town_city }}</a></small>
+    <small class="back_link">
+        <span>←</span>
+        <a href="..">{{ business.town_city }}</a>
+    </small>
 {% endblock %}
