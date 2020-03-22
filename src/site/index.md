@@ -3,7 +3,7 @@ title: Save Your Indie High Street
 layout: layouts/home.njk
 ---
 
-**Your local pubs, cafes, restaurants and cinemas are closing** because of coronovirus. <small>[Learn more](https://www.bbc.co.uk/news/uk-51981653)</small>
+**Your local pubs, cafes, restaurants and cinemas are closing** because of coronovirus. <small>[Read the BBC's story](https://www.bbc.co.uk/news/uk-51981653)</small>
 
 Unless these businesses can make it through, we might just have chains once this has all passed.
 
