@@ -1,6 +1,14 @@
 {% extends './base.njk' %}
 
 {% block content %}
-    <h2>{{ title }}</h2>
-    {{ content | safe }}
+    <nav>
+        <small class="back_link">
+            <span>←</span>
+            <a href="/">Home</a>
+        </small>
+    </nav>
+    <section class="page_content">
+        <h2>{{ title }}</h2>
+        {{ content | safe }}
+    </section>
 {% endblock %}

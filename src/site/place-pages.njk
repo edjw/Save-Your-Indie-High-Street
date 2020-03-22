@@ -10,13 +10,6 @@ tag: place
 ---
 
 {% block content %}
-    <nav>
-        <small class="back_link">
-            <span>←</span>
-            <a href="/">Home</a>
-        </small>
-    </nav>
-
     <section class="businesses_list_section">
 
         <h2>{{ place }} businesses</h2>
@@ -35,9 +28,4 @@ tag: place
             {% endfor %}
         </ul>
     </section>
-    <small class="back_link">
-        <span>←</span>
-        <a href="..">Home</a>
-    </small>
-
 {% endblock %}
