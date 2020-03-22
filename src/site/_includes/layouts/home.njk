@@ -21,7 +21,7 @@
                 {% endif %}
                 <ul>
                     <li class="place">
-                        <a href="{{ place | slug }}" id="{{ place | slug }}">{{ place }}</a>
+                        <a href="{{ place | slugIt | lower }}" id="{{ place | slug }}">{{ place }}</a>
                     </li>
                 </ul>
 

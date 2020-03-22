@@ -4,32 +4,40 @@ pagination:
     size: 1
     alias: place
     addAllPagesToCollections: true
-permalink: "{{ place | slug }}/"
+permalink: "{{ place | slugIt | lower }}/"
 layout: "layouts/place.njk"
 tag: place
 ---
 
 {% block content %}
-<nav>
-    <small class="back_link"><span>←</span> <a href="/">Home</a></small>
-</nav>
+    <nav>
+        <small class="back_link">
+            <span>←</span>
+            <a href="/">Home</a>
+        </small>
+    </nav>
 
-<section class="businesses_list_section">
+    <section class="businesses_list_section">
 
-    <h2>{{ place }} businesses</h2>
+        <h2>{{ place }} businesses</h2>
 
-    <ul class="businesses_list">
-    {% for business in businesses %}
+        <ul class="businesses_list">
+            {% for business in businesses %}
 
-    {% if business.town_city | slug == place | slug %}
+                {% if business.town_city | slug == place | slug %}
 
-    <li class="business_list_name"><a href="{{ business.name | slug }}">{{ business.name }}</a></li>
+                    <li class="business_list_name">
+                        <a href="{{ business.name | slugIt | lower }}">{{ business.name }}</a>
+                    </li>
 
-    {% endif %}
+                {% endif %}
 
-    {% endfor %}
-</ul>
-</section>
-<small class="back_link"><span>←</span> <a href="..">Home</a></small>
+            {% endfor %}
+        </ul>
+    </section>
+    <small class="back_link">
+        <span>←</span>
+        <a href="..">Home</a>
+    </small>
 
 {% endblock %}

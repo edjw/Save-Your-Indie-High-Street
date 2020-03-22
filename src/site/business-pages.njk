@@ -4,7 +4,7 @@ pagination:
     size: 1
     alias: business
     addAllPagesToCollections: true
-permalink: "{{ business.town_city | slug }}/{{ business.name | slug }}/"
+permalink: "{{ business.town_city | slugIt | lower }}/{{ business.name | slugIt | lower }}/"
 layout: "layouts/business.njk"
 tag: business
 ---
@@ -27,9 +27,6 @@ tag: business
                 <h3>Description</h3>
                 <p>{{ business.description }}</p>
             {% endif %}
-
-            {# <h3>Place</h3>
-        <p>{{ business.town_city }}</p> #}
 
             {% if business.website %}
                 <h3>Website</h3>
@@ -67,6 +64,12 @@ tag: business
                         <a href="tel:{{ business.voucher_link | safe }}">{{ business.voucher_link | safe }}</a>
                     </p>
 
+                {% elif business.voucher_link | linkType == "email" %}
+                    <p>Email {{ business.name}} to buy a voucher:</p>
+                    <p>
+                        <a href="mailto:{{ business.voucher_link | safe }}">{{ business.voucher_link | safe }}</a>
+                    </p>
+
                 {% else %}
                     <p>
                         <a href="{{ business.voucher_link | safe }}">Buy your voucher</a>
@@ -89,6 +92,12 @@ tag: business
                     <p>
                         <a href="tel:{{ business.delivery_link | safe }}">
                             {{ business.delivery_link | safe }}</a>
+                    </p>
+
+                {% elif business.delivery_link | linkType == "email" %}
+                    <p>Email {{ business.name}} to order delivery:</p>
+                    <p>
+                        <a href="mailto:{{ business.delivery_link | safe }}">{{ business.voucher_link | safe }}</a>
                     </p>
 
                 {% else %}
