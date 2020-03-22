@@ -21,7 +21,9 @@ module.exports = async () => {
             // This function (`page`) will get called for each page of records.
 
             records.forEach(function (record) {
-                allRecords.push(record.fields);
+                if (record.fields.town_city && record.fields.name) {
+                    allRecords.push(record.fields);
+                }
             });
             // To fetch the next page of records, call `fetchNextPage`.
             // If there are more records, `page` will get called again.
