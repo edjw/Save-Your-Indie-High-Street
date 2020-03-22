@@ -34,16 +34,6 @@ module.exports = function (eleventyConfig) {
     return linkifyHtml(new String(text), options);
   });
 
-  const Terser = require("terser");
-  eleventyConfig.addFilter("jsmin", function (code) {
-    let minified = Terser.minify(code);
-    if (minified.error) {
-      console.log("Terser error: ", minified.error);
-      return code;
-    }
-    return minified.code;
-  });
-
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
