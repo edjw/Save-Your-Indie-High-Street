@@ -6,7 +6,7 @@
    {# <link rel="stylesheet" href="../../assets/css/main.css"> #}
     <title>{{ title }}</title>
     {% set css %}
-    {# {% include "../../assets/css/reset.css" %} #}
+    {% include "../../assets/css/reset.css" %}
     {% include "../../assets/css/main.css" %}
     {% endset %}
     <style>
@@ -22,15 +22,6 @@
       {% block content %}{% endblock %}
       {% include "partials/footer.njk" %}
     </main>
-
-    <!-- capture the JS content as a Nunjucks variable -->
-    {% set js %}
-    {# {% include "sample.js" %} #}
-    {% endset %}
-    <!-- feed it through our jsmin filter to minify -->
-    <script>
-      {{ js | jsmin | safe }}
-    </script>
 
   </body>
 </html>
