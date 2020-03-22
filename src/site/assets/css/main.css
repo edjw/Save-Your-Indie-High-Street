@@ -164,7 +164,7 @@ a {
   margin-top: 1rem;
 }
 
-.businesses_list_section {
+.businesses_list_section, .page_content {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   background-color: #eded94;
