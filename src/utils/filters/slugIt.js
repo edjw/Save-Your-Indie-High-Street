@@ -1,4 +1,4 @@
-var slugify = require("slugify");
+const slugify = require("slugify");
 
 module.exports = function (text) {
 
