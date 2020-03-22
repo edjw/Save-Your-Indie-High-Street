@@ -36,7 +36,7 @@ module.exports = async () => {
                 console.error(err);
                 reject(err);
             } else {
-                // console.log(allRecords)
+                // console.log(allRecords);
                 resolve(allRecords);
             }
         })
