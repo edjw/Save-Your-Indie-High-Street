@@ -7,6 +7,4 @@ layout: layouts/home.njk
 
 **You can help keep them going!**
 
-1. **Buy vouchers and order deliveries** from your local indie businesses via the listings on this website.
-
-2. Take 5 minutes to help people support their favourite local businesses. **[Add businesses to this website](/add)**.
+**Buy vouchers and order deliveries** from your local indie businesses via this website.

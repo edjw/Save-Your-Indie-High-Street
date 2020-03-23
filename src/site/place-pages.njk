@@ -12,7 +12,7 @@ tag: place
 {% block content %}
     <section class="businesses_list_section">
 
-        <h2>{{ place }} businesses</h2>
+        <h2 class="place_heading">{{ place }} businesses</h2>
 
         <ul class="businesses_list">
             {% for business in businesses %}
@@ -27,5 +27,15 @@ tag: place
 
             {% endfor %}
         </ul>
+        <section class="missing">
+            <hr>
+            <p>
+                <strong>Is your favourite local business in {{ place }} missing?</strong>
+            </p>
+            <p>
+                <a href="/add">
+                    Add a business to this website</a>
+            </p>
+        </section>
     </section>
 {% endblock %}

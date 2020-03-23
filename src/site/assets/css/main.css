@@ -64,9 +64,12 @@ a {
   word-break: break-word;
 }
 
+nav {
+  margin-top: 1.5rem;
+}
+
 .back_link {
   display: block;
-  margin-top: 1rem;
   color: #000;
 }
 
@@ -82,7 +85,9 @@ a {
   list-style-type: square;
 }
 
-.places, .intro, footer {
+.places,
+.intro,
+footer {
   margin: 1.5rem 1rem;
   background-color: #eded94;
   padding: 1rem;
@@ -90,6 +95,10 @@ a {
   -webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   border-top: 6px solid #40a4f4;
+}
+
+.intro {
+  padding-top: 0.5rem;
 }
 
 .places_list,
@@ -114,8 +123,8 @@ a {
 }
 
 footer {
-  margin-top: 1.5rem;
   text-align: center;
+  padding-top: 0;
 }
 
 .footer_nav {
@@ -129,11 +138,12 @@ footer {
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 44rem) {
   footer {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     text-align: left;
   }
 
@@ -173,6 +183,16 @@ ul.businesses_list {
   margin-top: 0;
 }
 
-.business_name {
+.business_name,
+.places_heading,
+.place_heading {
   line-height: 1;
+}
+
+hr {
+  color: #40a4f4;
+}
+
+.missing {
+  margin-top: 2rem;
 }
