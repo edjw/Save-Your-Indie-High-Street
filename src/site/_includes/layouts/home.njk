@@ -8,6 +8,11 @@
 
     <section class="places" id="places">
         <h2 class="places_heading">Find businesses near you</h2>
+        <section class="top_missing">
+            <p>
+               If your town or city is missing, <strong><a href="/add">add a business to this website</a></strong>
+            </p>
+        </section>
         <section class="places_list">
             {% set initial = "" %}
             {% for place in places %}
@@ -30,7 +35,8 @@
         <section class="missing">
             <hr>
             <p>
-                <strong>Is your town or city missing?</strong></p>
+                <strong>Is your town or city missing?</strong>
+            </p>
             <p>
                 <a href="/add">
                     Add a business to this website</a>
