@@ -14,7 +14,7 @@ tag: business
     <section class="businesses_list_section">
 
         <h2 class="business_name">{{ business.name }}</h2>
-        <small class="business_category">{{ business.category }}</small>
+        <small class="business_category">{{ business.category }} in {{ business.town_city }}</small>
 
         <section class="business_details">
             {% if business.description %}
