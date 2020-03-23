@@ -51,10 +51,6 @@ body {
   line-height: 1;
 }
 
-.intro {
-  margin-top: 1.25rem;
-}
-
 p {
   margin-top: 0.5rem;
 }
@@ -86,8 +82,8 @@ a {
   list-style-type: square;
 }
 
-.places {
-  margin: 1rem 1rem;
+.places, .intro, footer {
+  margin: 1.5rem 1rem;
   background-color: #eded94;
   padding: 1rem;
   border-radius: 0.25rem;
