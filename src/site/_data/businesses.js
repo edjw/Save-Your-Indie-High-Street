@@ -17,6 +17,8 @@ module.exports = async () => {
             sort: [
                 { field: "name", direction: "asc" }
             ],
+            // Specifying fields makes it slower/no difference for some reason
+            // fields: ["id", "name", "description", "category", "town_city", "website", "phone_number", "email_address", "voucher_instructions", "voucher_link", "delivery_instructions", "delivery_link"]
         }).eachPage(function page(records, fetchNextPage) {
             // This function (`page`) will get called for each page of records.
 
