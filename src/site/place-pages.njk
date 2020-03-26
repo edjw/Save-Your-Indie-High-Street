@@ -24,7 +24,7 @@ tag: place
                 {% if business.town_city | slug == place | slug %}
 
                     <li class="business_list_name">
-                        <a href="{{ business.name | slugIt | lower }}">{{ business.name }}</a>
+                        <a href="{{ business.name | slugIt | lower }}">{{ business.name }}</a> {# <small>– {{ business.category }}</small> #}
                     </li>
 
                 {% endif %}
