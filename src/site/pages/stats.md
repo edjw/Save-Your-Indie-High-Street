@@ -1,6 +1,7 @@
 ---
 title: Stats
-layout: layouts/page.njk
+# layout: layouts/page.njk
+permalink: stats/index.html
 ---
 Some stats about the site
 
