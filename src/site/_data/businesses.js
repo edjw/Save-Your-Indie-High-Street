@@ -42,7 +42,7 @@ module.exports = async () => {
             records.forEach(function (record) {
                 if (record.fields.town_city && record.fields.name) {
 
-                    if (record.fields.town_city.toLowerCase() === "newcastle upon tyne") {
+                    if (record.fields.town_city.trim().toLowerCase() === "newcastle upon tyne") {
                         record.fields.town_city = "Newcastle";
                     }
 
