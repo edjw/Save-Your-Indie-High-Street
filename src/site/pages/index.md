@@ -4,7 +4,7 @@ layout: layouts/home.njk
 permalink: /
 ---
 
-**Your local pubs, cafes, restaurants and cinemas are closing** because of coronovirus. 
+**Your local shops, pubs, cafes, restaurants and cinemas are closing** because of coronovirus. 
 
 **You can help keep them going!**
 
